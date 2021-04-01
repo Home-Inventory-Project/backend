@@ -1,0 +1,27 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend API for HomeInventory project",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Home-Inventory-Project/backend.git"
+  },
+  "author": "HomeInventory Project",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Home-Inventory-Project/backend/issues"
+  },
+  "homepage": "https://github.com/Home-Inventory-Project/backend#readme",
+  "dependencies": {
+    "apollo-server": "^2.22.2",
+    "dotenv": "^8.2.0",
+    "graphql": "^15.5.0",
+    "sequelize": "^6.6.2",
+    "sqlite3": "^5.0.2"
+  }
+}
