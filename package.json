@@ -4,7 +4,7 @@
   "description": "Backend API for HomeInventory project",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "nodemon src/index.js",
     "test": ""
   },
   "repository": {
