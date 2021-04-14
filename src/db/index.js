@@ -10,4 +10,8 @@ const sequelize = new Sequelize({
 	benchmark: true
 });
 
-module.exports = sequelize;
+
+const Product = require('./model/product.js')(sequelize)
+const Home = require('./model/home.js')(sequelize)
+
+module.exports = {sequelize, Product, Home};
