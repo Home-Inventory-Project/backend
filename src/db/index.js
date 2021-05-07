@@ -13,5 +13,8 @@ const sequelize = new Sequelize({
 
 const Product = require('./model/product.js')(sequelize)
 const Home = require('./model/home.js')(sequelize)
+const HomeProducts = require('./model/homeProducts.js')(sequelize)
+const Producer = require('./model/producer.js')(sequelize)
+const User = require('./model/user.js')(sequelize)
 
-module.exports = {sequelize, Product, Home};
+module.exports = {sequelize, Product, Home, HomeProducts, Producer, User};
