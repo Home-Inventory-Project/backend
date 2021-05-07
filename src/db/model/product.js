@@ -6,7 +6,7 @@ module.exports = (sequelize) => {
 			allowNull: false,
 			autoIncrement: true,
 			primaryKey: true,
-			type: DataTypes.INTEGER
+			type: DataTypes.INT
 		},
     name: {
       type : DataTypes.STRING,
@@ -20,6 +20,10 @@ module.exports = (sequelize) => {
       type : DataTypes.STRING,
       allowNull : true
     },
+    barcode: {
+      type : DataTypes.STRING,
+      allowNull : true
+    }
 	});
   return Product
 };
