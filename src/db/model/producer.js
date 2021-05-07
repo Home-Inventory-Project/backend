@@ -25,5 +25,5 @@ module.exports = (sequelize) => {
       allowNull : true
     }
 	});
-  return Home
+  return Producer
 };

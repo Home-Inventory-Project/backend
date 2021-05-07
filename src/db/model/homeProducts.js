@@ -17,5 +17,5 @@ module.exports = (sequelize) => {
       allowNull : false
     }
 	});
-  return Home
+  return HomeProducts
 };
