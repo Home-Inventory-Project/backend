@@ -1,6 +1,9 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
+
+  Product.belongsTo(Producer);
+  
 	const Product = sequelize.define('Product', {
 		id: {
 			allowNull: false,

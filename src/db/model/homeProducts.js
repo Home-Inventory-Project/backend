@@ -1,6 +1,10 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
+
+  HomeProducts.belongsTo(Home);
+  HomeProducts.belongsTo(Product);
+
 	const HomeProducts = sequelize.define('HomeProducts', {
     id: {
         allowNull: false,

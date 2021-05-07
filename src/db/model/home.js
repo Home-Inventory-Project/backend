@@ -1,6 +1,9 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
+
+  Home.belongsTo(User);
+
 	const Home = sequelize.define('Home', {
 		id: {
 			allowNull: false,
