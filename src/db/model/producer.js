@@ -1,26 +1,26 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-	const Home = sequelize.define('Home', {
-		id: {
-			allowNull: false,
-			autoIncrement: true,
-			primaryKey: true,
-			type: DataTypes.INT
-		},
+	const Producer = sequelize.define('Producer', {
+    id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: DataTypes.INT
+    },
     name: {
       type : DataTypes.STRING,
       allowNull : false
     },
-    address: {
+    vat_number: {
+      type : DataTypes.INT,
+      allowNull : true
+    },
+    site: {
       type : DataTypes.STRING,
       allowNull : true
     },
-    state: {
-      type : DataTypes.STRING,
-      allowNull : true
-    },
-    timezone: {
+    image: {
       type : DataTypes.STRING,
       allowNull : true
     }
