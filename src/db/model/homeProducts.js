@@ -6,14 +6,14 @@ module.exports = (sequelize) => {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INT
+        type: DataTypes.INTEGER
     },
     expiration_date: {
       type : DataTypes.DATEONLY,
       allowNull : false
     },
     quantity: {
-      type : DataTypes.INT,
+      type : DataTypes.INTEGER,
       allowNull : false
     }
 	});

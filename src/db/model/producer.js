@@ -6,14 +6,14 @@ module.exports = (sequelize) => {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INT
+        type: DataTypes.INTEGER
     },
     name: {
       type : DataTypes.STRING,
       allowNull : false
     },
     vat_number: {
-      type : DataTypes.INT,
+      type : DataTypes.INTEGER,
       allowNull : true
     },
     site: {

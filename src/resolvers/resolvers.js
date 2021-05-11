@@ -9,8 +9,17 @@ const resolvers = {
         createdAt: Date.now()
       },
     ],
+    homes: () => [
+      {
+      id: 'idddddddd',
+      name: 'nomecasa',
+      address: 'INDIRIZZO 1111'
+      },
+    ],
   },
+/*   Mutation:{
+    userCreate(username)
+  } */
 };
-
 
 module.exports = resolvers;

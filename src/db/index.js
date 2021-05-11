@@ -10,11 +10,15 @@ const sequelize = new Sequelize({
 	benchmark: true
 });
 
-
+const User = require('./model/user.js')(sequelize)
+const Producer = require('./model/producer.js')(sequelize)
 const Product = require('./model/product.js')(sequelize)
 const Home = require('./model/home.js')(sequelize)
 const HomeProducts = require('./model/homeProducts.js')(sequelize)
-const Producer = require('./model/producer.js')(sequelize)
-const User = require('./model/user.js')(sequelize)
 
-module.exports = {sequelize, Product, Home, HomeProducts, Producer, User};
+Product.belongsTo(Producer);
+Home.belongsTo(User);
+HomeProducts.belongsTo(Home);
+HomeProducts.belongsTo(Product);
+
+module.exports = {sequelize, User, Producer, Product, Home, HomeProducts};
