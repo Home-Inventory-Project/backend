@@ -1,15 +1,12 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-
-  Home.belongsTo(User);
-
 	const Home = sequelize.define('Home', {
 		id: {
 			allowNull: false,
 			autoIncrement: true,
 			primaryKey: true,
-			type: DataTypes.INT
+			type: DataTypes.INTEGER
 		},
     name: {
       type : DataTypes.STRING,

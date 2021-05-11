@@ -3,21 +3,21 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
 	const User = sequelize.define('User', {
     id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: DataTypes.INT
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER
     },
     username: {
       type : DataTypes.STRING,
-      allowNull : false
+      allowNull : true
     },
     email: {
       type : DataTypes.STRING,
-      allowNull : true
+      allowNull : false
     },
     password: {
-        type : DataTypes.password,
+        type : DataTypes.STRING,
         allowNull : false
     },
     birthdate: {
@@ -26,11 +26,17 @@ module.exports = (sequelize) => {
     },
     sex: {
       type : DataTypes.CHAR,
-      allowNull : true
+      allowNull : true,
+      validate: {
+        len: [1]
+      }
     },
     status: {
-        type : DataTypes.STRING,
-        allowNull : false
+      type : DataTypes.CHAR,
+      allowNull : false,
+      validate: {
+        len: [1]
+      }
     }
 	});
   return User

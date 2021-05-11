@@ -1,15 +1,12 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-
-  Product.belongsTo(Producer);
-  
 	const Product = sequelize.define('Product', {
 		id: {
 			allowNull: false,
 			autoIncrement: true,
 			primaryKey: true,
-			type: DataTypes.INT
+			type: DataTypes.INTEGER
 		},
     name: {
       type : DataTypes.STRING,
