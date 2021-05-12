@@ -68,6 +68,10 @@ type Query {
 
 type Mutation {
   userCreate(username: String): User
+
+  createProduct(name : String!, category : String!, barcode : String!) : Product
+  updateProduct(id: Int!, name : String, category : String, barcode : String) : Product
+  deleteProduct(id: Int!) : Product
 }
 
 `; // expiration_date: String => è una data | birthdate: String! => è una data | sex: String! => è un char
