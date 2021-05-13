@@ -21,17 +21,23 @@ const resolvers = {
       return await Product.create(arg)
     },
     updateProduct : async (parent,arg) => {
-      if (arg.name     != undefined ||
-          arg.category != undefined ||
-          arg.barcode  != undefined ) {
-       console.log(arg);
-       return  await Product.findAll({  where: {
-            id: arg.id
-          }}
-        )
 
+       let data = {}
+
+       if( arg.name != undefined )  data['name'] = arg.name
+       if( arg.category != undefined )  data['category'] = arg.category
+       if( arg.barcode != undefined )  data['barcode'] =  arg.barcode
+
+       let p = await Product.update(data,{
+        where: {id: arg.id},
+        returning: true,
+        plain: true})
+
+      if (p[1] != 0) {
+        return await Product.findOne({where: {id: arg.id}})
       }
-      throw new Error('Missing parameters')
+
+      return null;
     },
     createProduct : async (parent,arg) => {
       return await Product.create(arg)
