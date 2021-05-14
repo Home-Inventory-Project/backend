@@ -20,24 +20,18 @@ const resolvers = {
     createProduct : async (parent,arg) => {
       return await Product.create(arg)
     },
-    updateProduct : async (parent,arg) => {
+    updateProduct : async (parent,args) => {
 
        let data = {}
+       let eligiblePropeties = ['name', 'category', 'barcode'];
 
-       if( arg.name != undefined )  data['name'] = arg.name
-       if( arg.category != undefined )  data['category'] = arg.category
-       if( arg.barcode != undefined )  data['barcode'] =  arg.barcode
+       data = Object.fromEntries(
+        Object.entries(args).filter(([key,value]) => value !== undefined && eligiblePropeties.includes(key))
+       );
 
-       let p = await Product.update(data,{
-        where: {id: arg.id},
-        returning: true,
-        plain: true})
+      let p = await Product.update(data,{where: {id: args.id}})
+      return p[1] != 0 ? await Product.findOne({where: {id: args.id}}) : null
 
-      if (p[1] != 0) {
-        return await Product.findOne({where: {id: arg.id}})
-      }
-
-      return null;
     },
     createProduct : async (parent,arg) => {
       return await Product.create(arg)
