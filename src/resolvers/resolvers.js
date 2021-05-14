@@ -29,8 +29,9 @@ const resolvers = {
         Object.entries(args).filter(([key,value]) => value !== undefined && eligiblePropeties.includes(key))
        );
 
-      let p = await Product.update(data,{where: {id: args.id}})
-      return p[1] != 0 ? await Product.findOne({where: {id: args.id}}) : null
+      // actualAffectedRows is used only with postgres
+      let {affectedRows,actualAffectedRows} = await Product.update(data,{where: {id: args.id}})
+      return affectedRows != 0 ? await Product.findOne({where: {id: args.id}}) : null
 
     },
     createProduct : async (parent,arg) => {
