@@ -9,7 +9,7 @@ const resolvers = {
     homes: async () => {
       return await Home.findAll();
     },
-    producers: async () => {1
+    producers: async () => {
       return await Producer.findAll();
     },
     users: async () => {
@@ -29,13 +29,12 @@ const resolvers = {
         Object.entries(args).filter(([key,value]) => value !== undefined && eligiblePropeties.includes(key))
        );
 
-      // actualAffectedRows is used only with postgres
-      let {affectedRows,actualAffectedRows} = await Product.update(data,{where: {id: args.id}})
+      let {affectedRows,_ } = await Product.update(data,{where: {id: args.id}})
       return affectedRows != 0 ? await Product.findOne({where: {id: args.id}}) : null
 
     },
-    createProduct : async (parent,arg) => {
-      return await Product.create(arg)
+    deleteProduct : async (parent,arg) => {
+      return await Product.destroy({where: { id : arg.id}})
     }
   }
 };
