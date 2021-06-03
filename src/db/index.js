@@ -10,6 +10,7 @@ const sequelize = new Sequelize({
 	benchmark: true
 });
 
+
 const User = require('./model/user.js')(sequelize)
 const Producer = require('./model/producer.js')(sequelize)
 const Product = require('./model/product.js')(sequelize)
