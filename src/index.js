@@ -16,10 +16,7 @@ async function databaseConnection() {
 		console.log('Database connection OK!');
 
 		await sequelize.sync();
-
-		const product = await Product.create({ name: "Beans" });
-		const home = await Home.create({ name: "My Home", address: "Indirizzo 1" });
-
+		
 	} catch (error) {
 		console.log('Unable to connect to the database:');
 		console.log(error.message);

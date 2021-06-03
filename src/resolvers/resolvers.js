@@ -20,6 +20,9 @@ const resolvers = {
     createProduct : async (parent,arg) => {
       return await Product.create(arg)
     },
+    createProducer : async (parent,arg) => {
+      return await Producer.create(arg)
+    },
     updateProduct : async (parent,args) => {
 
        let data = {}
@@ -35,6 +38,9 @@ const resolvers = {
     },
     deleteProduct : async (parent,arg) => {
       return await Product.destroy({where: { id : arg.id}})
+    },
+    deleteProducer : async (parent,arg) => {
+      return await Producer.destroy({where: { id : arg.id}})
     }
   }
 };
