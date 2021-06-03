@@ -67,7 +67,20 @@ type Query {
 }
 
 type Mutation {
-  userCreate(username: String): User
+  createUser( username: String!, email: String!, password : String! , birthdate : String!, sex : String! ): User
+  updateUser( id : Int!, email: String, password : String , birthdate : String, sex : String ) : User
+
+  createProduct(name : String!, category : String!, barcode : String!) : Product
+  updateProduct(id: Int!, name : String, category : String, barcode : String) : Product
+  deleteProduct(id: Int!) : Boolean
+
+  createProducer( name : String!, var_number : Int, site : String, image : String ) : Product
+  updateProducer( id : Int! ) : Producer
+  deleteProducer( id : Int! ) : Boolean
+
+  createHome( name: String!, address : String! , state : String!, timezone : String! ) : Home
+  updateHome( id : Int!, name: String, address : String, state : String, timezone : String) : Home
+  deleteHome( id : Int! ) : Boolean
 }
 
 `; // expiration_date: String => è una data | birthdate: String! => è una data | sex: String! => è un char
