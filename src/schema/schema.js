@@ -81,6 +81,10 @@ type Mutation {
   createHome( name: String!, address : String! , state : String!, timezone : String! ) : Home
   updateHome( id : Int!, name: String, address : String, state : String, timezone : String) : Home
   deleteHome( id : Int! ) : Boolean
+
+  addHomeProducts(HomeId: Int!, ProductId: Int!, expiration_date : String!,quantity: Int) : HomeProducts
+  updateHomeProducts(id: Int!, HomeId: Int, ProductId: Int, expiration_date : String,quantity: Int) : HomeProducts
+  removeHomeProducts(id: Int!) : Boolean
 }
 
 `;
