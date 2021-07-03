@@ -27,6 +27,8 @@ type HomeProducts {
   id: ID!
   expiration_date: String
   quantity: Int!
+  HomeId : Int!,
+  ProductId : Int!
   createdAt: String!
   modifiedAt: String
   deletedAt: String

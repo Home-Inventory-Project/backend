@@ -14,6 +14,9 @@ const resolvers = {
     users: async () => {
       return await Users.findAll();
     },
+    homeProducts: async () => {
+      return await HomeProducts.findAll();
+    }
   },
   Mutation: {
     createProduct : async (parent,arg) => {
