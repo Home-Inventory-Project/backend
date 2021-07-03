@@ -27,6 +27,8 @@ type HomeProducts {
   id: ID!
   expiration_date: String
   quantity: Int!
+  HomeId : Int!,
+  ProductId : Int!
   createdAt: String!
   modifiedAt: String
   deletedAt: String
@@ -35,9 +37,9 @@ type HomeProducts {
 type Producer {
   id: ID!
   name: String!
-  vat_number: Int
+  vat_number: Int!
   site: String
-  image: String!
+  image: String
   products: [Product]
   createdAt: String!
   modifiedAt: String
@@ -74,15 +76,19 @@ type Mutation {
   updateProduct(id: Int!, name : String, category : String, barcode : String) : Product
   deleteProduct(id: Int!) : Boolean
 
-  createProducer( name : String!, var_number : Int, site : String, image : String ) : Product
+  createProducer( name : String!, vat_number : Int!, site : String, image : String ) : Producer
   updateProducer( id : Int! ) : Producer
   deleteProducer( id : Int! ) : Boolean
 
   createHome( name: String!, address : String! , state : String!, timezone : String! ) : Home
   updateHome( id : Int!, name: String, address : String, state : String, timezone : String) : Home
   deleteHome( id : Int! ) : Boolean
+
+  addHomeProducts(HomeId: Int!, ProductId: Int!, expiration_date : String!,quantity: Int) : HomeProducts
+  updateHomeProducts(id: Int!, HomeId: Int, ProductId: Int, expiration_date : String,quantity: Int) : HomeProducts
+  removeHomeProducts(id: Int!) : Boolean
 }
 
-`; // expiration_date: String => è una data | birthdate: String! => è una data | sex: String! => è un char
+`;
 
 module.exports = typeDefs;
